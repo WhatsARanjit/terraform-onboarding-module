@@ -117,7 +117,7 @@ module "workspace_read" {
   user_permissions = "read"
 }
 
-### Read access team
+### Write access team
 resource "tfe_team" "this_write" {
   name         = "${var.workspace_name}-write"
   organization = data.tfe_organization.this_org.name
