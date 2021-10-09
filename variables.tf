@@ -52,40 +52,9 @@ variable "workspace_oauth_id" {
   sensitive   = true
 }
 
-## Required TF/Env variables
-variable "bu" {
-  description = "Business unit ID"
-  type = string
-}
-
-variable "default_tags" {
-  description = "Tags to apply by default to VMs"
-  type        = string
-  default     = "{ \"environment\"= \"test\", \"owner\"= \"WhatsARanjit\" }"
-}
-
-## Optional variables
-variable "tf_variables" {
-  description = "Additional Terraform variables"
-  type        = map
-  default     = {}
-}
-
-variable "env_variables" {
-  description = "Additional environment variables"
-  type        = map
-  default     = {}
-}
-
-## Optional sensitive variables
-variable "sensitive_tf_variables" {
-  description = "Additional sensitive Terraform variables"
-  type        = map
-  default     = {}
-}
-
-variable "sensitive_env_variables" {
-  description = "Additional sensitive environment variables"
+# Variables
+variable "variables" {
+  description = "Map of all variables for workspace"
   type        = map
   default     = {}
 }
