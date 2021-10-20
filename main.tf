@@ -18,6 +18,7 @@ resource "tfe_workspace" "this_ws" {
   tag_names         = var.workspace_tags
   terraform_version = (var.workspace_terraform_version == "latest" ? null : var.workspace_terraform_version)
   working_directory = (var.workspace_vcs_directory == "root_directory" ? null : var.workspace_vcs_directory)
+  queue_all_runs    = false
 
   vcs_repo {
     identifier     = var.workspace_vcs_identifier
@@ -27,9 +28,7 @@ resource "tfe_workspace" "this_ws" {
 }
 
 ## Variables
-module "variables" {
-  source = "./modules/variables"
-
+resource "tfe_variable" "variables" {
   for_each     = var.variables
   workspace_id = tfe_workspace.this_ws.id
   key          = each.key
