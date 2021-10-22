@@ -11,7 +11,7 @@ resource "tfe_sentinel_policy" "dummy" {
   enforce_mode = "hard-mandatory"
 }
 
-resource "tfe_policy_set" "onboarding" {
+resource "tfe_policy_set" "onboarding_demo" {
   name          = "onboarding"
   description   = "Applies to workspaces tagged with 'onboarding'"
   organization  = var.organization
