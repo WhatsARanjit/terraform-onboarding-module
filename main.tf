@@ -18,8 +18,8 @@ resource "tfe_workspace" "this_ws" {
   tag_names         = var.workspace_tags
   terraform_version = (var.workspace_terraform_version == "latest" ? null : var.workspace_terraform_version)
   working_directory = (var.workspace_vcs_directory == "root_directory" ? null : var.workspace_vcs_directory)
-  queue_all_runs    = false
-  auto_apply        = true
+  queue_all_runs    = var.queue_all_runs
+  auto_apply        = var.auto_apply
 
   vcs_repo {
     identifier     = var.workspace_vcs_identifier

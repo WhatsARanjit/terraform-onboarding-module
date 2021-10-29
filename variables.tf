@@ -28,6 +28,16 @@ variable "workspace_tags" {
   default    = []
 }
 
+variable "queue_all_runs" {
+  description = "When workspace is created, automatically start a run"
+  default     = false
+}
+
+variable "auto_apply" {
+  description = "Automatically apply after successful plan"
+  default     = true
+}
+
 ## VCS variables (existing VCS connection)
 variable "workspace_vcs_identifier" {
   description = "<organization>/<repository> address of repo"
